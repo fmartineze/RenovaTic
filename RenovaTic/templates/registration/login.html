@@ -1,0 +1,56 @@
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+
+
+{% load static %}
+
+<html>
+  <head>
+    <style>
+      body {
+
+        background-color: #4C6FA4;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .panel_tittle{
+        text-align: center;
+        color : white;
+        font-size: large;
+      }
+      .panel_login{
+        min-width: 300px;
+        max-width: 400px;
+        max-height: 500px;
+        position:absolute;
+        left:50%;
+	      top:50%;
+        margin:-150px 0 0 -150px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <form method="post">
+    <div class="panel_login">
+      <p class="panel_tittle">RenovaTic</p>
+      <div class="panel panel-default center-block" style="box-shadow: 5px 5px 5px rgba(0,0,0,0.27);">
+        <div class="panel-heading">Iniciar Sesión</div>
+        <div class="panel-body">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+        </div>
+        <div class="panel-footer">
+            {% buttons %}
+            <center><button type="submit" class="btn btn-primary">{% bootstrap_icon "user" %} Login</button>
+            {% endbuttons %}
+        </div>
+
+      </div>
+    </div>
+
+    </form>
+  </body>
+</html>

@@ -10,15 +10,16 @@ class ProveedoresAdmin(admin.ModelAdmin):
     ]
 
 class ProductoAdmin(admin.ModelAdmin):
-    list_display = ('nombre_producto', 'proveedor', 'tipo', 'precio_compra', 'precio_venta',  'margen', "Mas25")
+    #list_display = ('nombre_producto', 'proveedor', 'tipo', 'precio_compra', 'precio_venta',  'margen', "Mas25")
+    list_display = ('nombre_producto', 'proveedor', 'tipo', 'precio_compra', 'precio_venta',  'margen')
     list_filter = ['proveedor', 'tipo']
     search_fields = ['nombre_producto']
     def margen(self, obj):
         return obj.precio_venta - obj.precio_compra
 
-    def Mas25(self, obj):
-        return (obj.precio_venta - obj.precio_compra) >= (obj.precio_compra * 0.25)
-    Mas25.boolean = True
+    #def Mas25(self, obj):
+    #    return (obj.precio_venta - obj.precio_compra) >= (obj.precio_compra * 0.25)
+    #Mas25.boolean = True
 
 class ClientesAdmin(admin.ModelAdmin):
     list_display = ('nombre_cliente', 'email', 'web')
